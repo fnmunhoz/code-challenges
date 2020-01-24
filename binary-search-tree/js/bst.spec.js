@@ -17,7 +17,8 @@ const tree = {
   right: {
     value: 20,
     left: {
-      value: 14
+      value: 14,
+      left: {}
     },
     right: {
       value: 25,
