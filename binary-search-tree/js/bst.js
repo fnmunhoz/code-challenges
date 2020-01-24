@@ -1,19 +1,20 @@
-function searchBST(tree, value) {
-  if (!tree || !value) {
+function searchBST(node, value) {
+  if (!node || !value) {
     return;
   }
 
-  if (tree.value === value) {
+  if (node.value === value) {
     return value;
   }
 
-  if (tree.value > value && tree.left && tree.left.value === value) {
+  if (node.value > value) {
+    if (node.left) {
+      return searchBST(node.left, value);
+    }
     return value;
   }
 
-  if (tree.right && tree.right.value === value) {
-    return value;
-  }
+  return searchBST(node.right, value);
 }
 
 module.exports = searchBST;

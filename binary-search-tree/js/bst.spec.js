@@ -15,7 +15,16 @@ const tree = {
     }
   },
   right: {
-    value: 15
+    value: 20,
+    left: {
+      value: 14
+    },
+    right: {
+      value: 25,
+      left: {
+        value: 24
+      }
+    }
   }
 };
 
@@ -48,7 +57,7 @@ it("should not get any value when the tree and the value are null", () => {
 // Not exists scenario
 
 it("should not get any value when the value does not exist in the tree", () => {
-  expect(searchBST(tree, 20)).toBeUndefined();
+  expect(searchBST(tree, 10000)).toBeUndefined();
 });
 
 // Level 1 scenario
@@ -64,7 +73,7 @@ it("should get [root, left] node value", () => {
 });
 
 it("should get [root, right] node value", () => {
-  expect(searchBST(tree, 15)).toBe(15);
+  expect(searchBST(tree, 20)).toBe(20);
 });
 
 // Level 3 scenarios
@@ -77,8 +86,20 @@ it("should get [root, left, right] node value", () => {
   expect(searchBST(tree, 9)).toBe(9);
 });
 
+it("should get [root, right, left] node value", () => {
+  expect(searchBST(tree, 14)).toBe(14);
+});
+
+it("should get [root, right, right] node value", () => {
+  expect(searchBST(tree, 25)).toBe(25);
+});
+
 // Level 4 scenarios
 
 it("should get [root, left, right, left] node value", () => {
   expect(searchBST(tree, 6)).toBe(6);
+});
+
+it("should get [root, right, right, left] node value", () => {
+  expect(searchBST(tree, 24)).toBe(24);
 });
