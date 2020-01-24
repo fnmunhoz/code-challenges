@@ -18,6 +18,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install, build, and test
         run: |
+          cd binary-search-tree/js
+          npm ci
           npm test
         env:
           CI: true
